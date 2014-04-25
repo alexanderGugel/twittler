@@ -3,8 +3,10 @@ $(document).ready(function(){
   var stream = streams.home;
   
   var changeStream = function (newStream) {
+    $('.tweets').html('');
     last = 0;
     stream = newStream;
+    displayTweets();
   }
   
   var displayTweets = function () {
@@ -19,8 +21,16 @@ $(document).ready(function(){
     last = i;
   }
   
+  displayTweets();
+  
   setInterval(function () {
     displayTweets();
-  }, 60);
+  }, 60*60);
+  
+  $('.tweets').on('click', 'a', function (event) {
+    event.preventDefault();
+    $('h1').html($(this).data('user'));
+    changeStream(streams.users[$(this).data('user')]);
+  });
   
 });
