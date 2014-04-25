@@ -33,7 +33,20 @@ $(document).ready(function(){
     changeStream(streams.users[$(this).data('user')]);
   });
   
-  $('button').click(function () {
+  $('header button').click(function () {
+    $('form').slideToggle();
+  });
+  
+  $('form button').click(function (event) {
+    event.preventDefault();
+    visitor = $('input.visitor').val();
+    if (!window.streams.users[visitor]) {
+      window.streams.users[visitor] = [];      
+    }
+    var msg = $('input.msg').val();
+    writeTweet(msg);
+    displayTweets(); // update tweets
+    $('input.msg').val('');
     $('form').slideToggle();
   });
   
