@@ -9,10 +9,21 @@
 html, button, input, select, textarea,
 .pure-g [class *= "pure-u"],
 .pure-g-r [class *= "pure-u"] {
-  color: #444;
+  color: #333;
   font: 300 16px/1.7 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 body {
+  background: #eee;
+}
+
+article {
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: #ccc 0px 2px 2px 0px;
   padding: 1em;
+  margin: 0.5em 1em;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
