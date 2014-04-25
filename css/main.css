@@ -18,7 +18,7 @@ body {
   padding: 1em;
 }
 
-article {
+article, form {
   background: #fff;
   border: 1px solid #ccc;
   box-shadow: #ccc 0px 2px 2px 0px;
@@ -29,13 +29,17 @@ article {
   border-radius: 3px;
 }
 
-.newTweetContainer {
+header div:last-child {
   text-align: right;
 }
 
-.newTweetContainer button {
+.pure-button {
   margin-top: 22px;
   background: #0066cc;
   color: #fff;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+form {
+  display: none;
 }

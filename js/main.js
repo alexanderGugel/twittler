@@ -33,4 +33,8 @@ $(document).ready(function(){
     changeStream(streams.users[$(this).data('user')]);
   });
   
+  $('button').click(function () {
+    $('form').slideToggle();
+  });
+  
 });
