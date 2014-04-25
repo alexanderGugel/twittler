@@ -6,7 +6,7 @@ $(document).ready(function(){
   while(index >= 0){
     var tweet = streams.home[index];
     var $tweet = $('<article></article>');
-    $tweet.text('@' + tweet.user + ': ' + tweet.message);
+    $tweet.html('<a href="#">@' + tweet.user + '</a>: ' + tweet.message);
     $tweet.appendTo($body);
     index -= 1;
   }
