@@ -27,13 +27,18 @@ $(document).ready(function(){
     displayTweets();
   }, 60*60);
   
+  $('.backHome').click(function () {
+    changeStream(streams.home);
+    $('h1').html('Home');
+  });
+  
   $('.tweets').on('click', 'a.user', function (event) {
     event.preventDefault();
     $('h1').html($(this).data('user'));
     changeStream(streams.users[$(this).data('user')]);
   });
   
-  $('header button').click(function () {
+  $('header .newTweet').click(function () {
     $('form').slideToggle();
   });
   
