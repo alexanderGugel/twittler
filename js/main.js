@@ -11,7 +11,7 @@ $(document).ready(function(){
   
   var displayTweets = function () {
     for (var i = last; i < stream.length; i++) {
-      var tweet = streams.home[i];
+      var tweet = stream[i];
       var $tweet = $('<article></article>');
       var msg ='<a class="user" data-user="' + tweet.user + '" href="#">@' + tweet.user + '</a>: ' + tweet.message;
       var time = '<br><small>' + moment(tweet.created_at).fromNow() + '</small>';
