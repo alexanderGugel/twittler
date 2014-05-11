@@ -1,0 +1,21 @@
+{
+  "name": "2014-06-twittler",
+  "version": "0.0.0",
+  "homepage": "https://github.com/alexanderGugel/2014-06-twittler",
+  "authors": [
+    "Alexander Gugel <alexander.gugel@gmail.com>"
+  ],
+  "description": "Part of the prep work (Hack Reactor)",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "moment": "~2.6.0",
+    "jquery": "~2.1.1"
+  },
+  "private": true
+}
