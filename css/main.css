@@ -43,3 +43,32 @@ header div:last-child {
 form {
   display: none;
 }
+
+/**
+ * Animation in order to highlight new tweets
+ * Used this at a previous project:
+ * https://github.com/alexanderGugel/Odin/blob/master/static/css/main.css
+ */
+
+@keyframes highlight {
+  from {
+    background: #0066cc;
+  }
+  to {
+    background: #fff;
+  }
+}
+
+@-webkit-keyframes highlight {
+  from {
+    background: #0066cc;
+  }
+  to {
+    background: #fff;
+  }
+}
+
+article small {
+  -webkit-animation: highlight 5s;
+          animation: highlight 5s;
+}

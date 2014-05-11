@@ -29,7 +29,7 @@ $(document).ready(function(){
 
   setInterval(function() {
     displayTweets();
-  }, 60*60);
+  }, 60);
 
   $('.backHome').click(function() {
     changeStream(streams.home);
