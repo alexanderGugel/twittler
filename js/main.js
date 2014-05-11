@@ -18,7 +18,7 @@ $(document).ready(function(){
       var tweet = stream[i];
       var $tweet = $('<article></article>');
       var msg ='<a class="user" data-user="' + tweet.user + '" href="#">@' + tweet.user + '</a>: ' + tweet.message;
-      var time = '<br><small>' + moment(tweet.created_at).fromNow() + '</small>';
+      var time = '<br><small data-createdat="' + tweet.created_at + '">' + moment(tweet.created_at).fromNow() + '</small>';
       $tweet.html(msg + time);
       $tweet.prependTo($('.tweets'));
     }
@@ -59,4 +59,16 @@ $(document).ready(function(){
     $('input.msg').val('');
     $('form').slideToggle();
   });
+
+  // Update the time dispalyed in the "* ago"-format.
+  var updateAgo = function() {
+    var agoTags = $('body').find('small');
+    $.each(agoTags, function() {
+      var createdAt = $(this).data('createdat');
+      var updatedAgo = moment(createdAt, 'dddd, MMMM Do YYYY, h:mm:ss a').fromNow();
+      $(this).text(updatedAgo);
+    });
+  };
+
+  setInterval(updateAgo, 60);
 });
