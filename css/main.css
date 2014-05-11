@@ -52,7 +52,7 @@ form {
 
 @keyframes highlight {
   from {
-    background: #0066cc;
+    background: #b9d3ed;
   }
   to {
     background: #fff;
@@ -61,14 +61,14 @@ form {
 
 @-webkit-keyframes highlight {
   from {
-    background: #0066cc;
+    background: #b9d3ed;
   }
   to {
     background: #fff;
   }
 }
 
-article small {
+article {
   -webkit-animation: highlight 5s;
           animation: highlight 5s;
 }
