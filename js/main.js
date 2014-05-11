@@ -1,15 +1,19 @@
 $(document).ready(function(){
+  // See displayTweets() to understand how this variable is being used.
   var last = 0;
+
+  // The current stream. Defaults to streams.home (home).
   var stream = streams.home;
-  
-  var changeStream = function (newStream) {
+
+  var changeStream = function(newStream) {
+    // Remove old tweets from current timeline.
     $('.tweets').html('');
     last = 0;
     stream = newStream;
     displayTweets();
   }
-  
-  var displayTweets = function () {
+
+  var displayTweets = function() {
     for (var i = last; i < stream.length; i++) {
       var tweet = stream[i];
       var $tweet = $('<article></article>');
@@ -20,33 +24,34 @@ $(document).ready(function(){
     }
     last = i;
   }
-  
+
   displayTweets();
-  
-  setInterval(function () {
+
+  setInterval(function() {
     displayTweets();
   }, 60*60);
-  
-  $('.backHome').click(function () {
+
+  $('.backHome').click(function() {
     changeStream(streams.home);
     $('h1').html('Home');
   });
-  
-  $('.tweets').on('click', 'a.user', function (event) {
+
+  $('.tweets').on('click', 'a.user', function(event) {
     event.preventDefault();
-    $('h1').html($(this).data('user'));
-    changeStream(streams.users[$(this).data('user')]);
+    var username = $(this).data('user');
+    $('h1').html(username);
+    changeStream(streams.users[username]);
   });
-  
-  $('header .newTweet').click(function () {
+
+  $('header .newTweet').click(function() {
     $('form').slideToggle();
   });
-  
-  $('form button').click(function (event) {
+
+  $('form button').click(function(event) {
     event.preventDefault();
     visitor = $('input.visitor').val();
     if (!window.streams.users[visitor]) {
-      window.streams.users[visitor] = [];      
+      window.streams.users[visitor] = [];
     }
     var msg = $('input.msg').val();
     writeTweet(msg);
@@ -54,5 +59,4 @@ $(document).ready(function(){
     $('input.msg').val('');
     $('form').slideToggle();
   });
-  
 });
